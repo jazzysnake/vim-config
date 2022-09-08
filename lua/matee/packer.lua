@@ -10,6 +10,15 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   -- lsp config 
   use 'neovim/nvim-lspconfig'
+  -- lsp installer
+  use {
+      'junnplus/lsp-setup.nvim',
+      requires = {
+          'neovim/nvim-lspconfig',
+          'williamboman/mason.nvim',
+          'williamboman/mason-lspconfig.nvim',
+          }
+    }
   -- java lsp
   use 'mfussenegger/nvim-jdtls'
   -- lsp completion

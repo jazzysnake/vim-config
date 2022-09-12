@@ -1,6 +1,16 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 -- full config example:
--- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L1-L149
+-- https://github.com/mfusselocal project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+
+-- 💀
+-- This is the default if not provided, you can remove it. Or adjust as needed.
+-- One dedicated LSP server & client will be started per unique root_dir
+root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})
+
+-- local project_name = vim.fn.fnamemodify(vim.fn.getcwd() .. '../', ':p:h:t')
+
+local workspace_dir = vim.fn.getcwd() .. '/../'
+
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -39,13 +49,8 @@ local config = {
     -- 💀
     -- See `data directory configuration` section in the README
     -- '-data', '/path/to/unique/per/project/workspace/folder'
-    '-data', '~/Workspaces/Blockchain/mvcc/mvcc-seri-demo'
+    '-data', workspace_dir,
   },
-
-  -- 💀
-  -- This is the default if not provided, you can remove it. Or adjust as needed.
-  -- One dedicated LSP server & client will be started per unique root_dir
-  root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request

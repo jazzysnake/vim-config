@@ -22,6 +22,7 @@ require('lsp-setup').setup({
     mappings = {},
     -- Global on_attach
     on_attach = function(client, bufnr)
+        print('lsp-setup called')
         -- Support custom the on_attach function for global
         -- Formatting on save as default
         require('lsp-setup.utils').format_on_save(client)

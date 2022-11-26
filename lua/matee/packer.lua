@@ -32,4 +32,17 @@ return require('packer').startup(function(use)
     }
     -- lsp completion pictograms
     use 'onsails/lspkind.nvim'
+    use 'simrat39/rust-tools.nvim'
+    -- firefox vim textbox plugin
+    --use {
+    --    'glacambre/firenvim',
+    --    run = function() vim.fn['firenvim#install'](0) end
+    --}
+    use {
+        's1n7ax/nvim-terminal',
+        config = function()
+            vim.o.hidden = true
+            require('nvim-terminal').setup()
+        end,
+    }
 end)

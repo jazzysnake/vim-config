@@ -28,7 +28,8 @@ require('lsp-setup').setup({
         jedi_language_server = {},
         jdtls = {},
         sumneko_lua = {},
-    }
+    },
+    mappings = {},
 })
 require 'lspconfig'.jedi_language_server.setup {
     cmd = { "jedi-language-server" },
@@ -44,4 +45,10 @@ require 'lspconfig'.jdtls.setup {
 require 'lspconfig'.sumneko_lua.setup {
     filetypes = { 'lua' },
     on_attach = default_onattach,
+}
+
+require 'lspconfig'.elixirls.setup {
+    filetypes = { 'exs', 'elixir', 'eelixir', 'ex' },
+    on_attach = default_onattach,
+    root_dir = vim.loop.os_homedir
 }

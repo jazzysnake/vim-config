@@ -1,0 +1,5 @@
+require("after.plugin.cmp-config")
+require("after.plugin.lsp-config")
+require("after.plugin.lsp-setup")
+require("after.plugin.nvim-term")
+require("after.plugin.color")

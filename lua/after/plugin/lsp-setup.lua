@@ -27,7 +27,7 @@ require('lsp-setup').setup({
     servers = {
         jedi_language_server = {},
         jdtls = {},
-        sumneko_lua = {},
+        lua_ls = {},
     },
     mappings = {},
 })
@@ -42,7 +42,7 @@ require 'lspconfig'.jdtls.setup {
     on_attach = default_onattach,
 }
 
-require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
     filetypes = { 'lua' },
     on_attach = default_onattach,
 }
